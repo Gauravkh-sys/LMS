@@ -6,6 +6,7 @@ import { WingMasterComponent } from './components/masters/wing-master/wing-maste
 import { AreaMasterComponent } from './components/masters/area-master/area-master.component';
 import { VoilationMasterComponent } from './components/masters/voilation-master/voilation-master.component';
 import { UsermanagementComponent } from './components/usermanagement/usermanagement.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 export const routes: Routes = [
     {
@@ -31,5 +32,10 @@ export const routes: Routes = [
     {
         path:'usermanagement',
         component:UsermanagementComponent
+    },
+    {
+        path:'profile',
+        component:UserprofileComponent
     }
+
 ];

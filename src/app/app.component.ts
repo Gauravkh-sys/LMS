@@ -11,7 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   title = 'land-management-system';
-
+  userImageUrl='https://avatars.githubusercontent.com/u/160629633?v=4';
+  //https://avatars.githubusercontent.com/u/160629634
   showLayout = true;
   username = '';
   role = '';
