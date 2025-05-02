@@ -1,11 +1,11 @@
 import { Component, Inject, inject, OnInit } from '@angular/core';
-import { Router, RouterOutlet ,NavigationEnd } from '@angular/router';
+import { Router, RouterOutlet ,NavigationEnd, RouterModule } from '@angular/router';
 import { AuthService } from './service/auth.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,CommonModule],
+  imports: [RouterOutlet,CommonModule,RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
