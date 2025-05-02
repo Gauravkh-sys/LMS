@@ -1,0 +1,12 @@
+<p>landentry works!</p>
+<!-- land-entry.component.html -->
+<div class="container mt-4">
+    <div class="card p-4 shadow">
+      <h4>Create / Update Land Entry</h4>
+      <input [(ngModel)]="entry.owner" class="form-control mb-2" placeholder="Owner Name" />
+      <input [(ngModel)]="entry.area" class="form-control mb-2" placeholder="Area (in acres)" />
+      <input [(ngModel)]="entry.location" class="form-control mb-2" placeholder="Location" />
+      <button class="btn btn-success" (click)="saveEntry()">Save Entry</button>
+    </div>
+  </div>
+  

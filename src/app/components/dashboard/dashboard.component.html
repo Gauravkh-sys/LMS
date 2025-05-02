@@ -1,0 +1,103 @@
+<div class="container mt-4">
+    <!-- Greeting -->
+    <h2 class="text-center mb-4 text-success">
+      Welcome, {{ username }}
+      <span class="badge bg-secondary">{{ role | titlecase }}</span>
+    </h2>
+  
+    <!-- Infographic Cards -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="card text-bg-primary shadow rounded-4">
+          <div class="card-body text-center">
+            <i class="bi bi-file-earmark-bar-graph-fill fs-1 mb-2"></i>
+            <h5>Total Records</h5>
+            <p class="display-6">{{ landEntries.length }}</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="card text-bg-success shadow rounded-4">
+          <div class="card-body text-center">
+            <i class="bi bi-rulers fs-1 mb-2"></i>
+            <h5>Total Area</h5>
+            <p class="display-6">
+              {{ getTotalArea() }} Acres
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="card text-bg-warning shadow rounded-4">
+          <div class="card-body text-center">
+            <i class="bi bi-geo-alt-fill fs-1 mb-2"></i>
+            <h5>Locations Covered</h5>
+            <p class="display-6">
+              {{ getUniqueLocations().length }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Role-Based Content -->
+    <div [ngSwitch]="role">
+  
+      <!-- Admin View -->
+      <div *ngSwitchCase="'admin'">
+        <h4 class="text-primary">Admin Land Records Overview</h4>
+        <table class="table table-striped table-hover shadow-sm">
+          <thead class="table-dark">
+            <tr>
+              <th>Owner</th>
+              <th>Area</th>
+              <th>Location</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let entry of landEntries">
+              <td>{{ entry.owner }}</td>
+              <td>{{ entry.area }}</td>
+              <td>{{ entry.location }}</td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary me-2">Edit</button>
+                <button class="btn btn-sm btn-outline-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- User View -->
+      <div *ngSwitchCase="'user'">
+        <h4 class="text-info">Your Accessible Land Records</h4>
+        <div class="row">
+          <div class="col-md-6 mb-3" *ngFor="let entry of landEntries">
+            <div class="card shadow-sm border-info border-start border-5">
+              <div class="card-body">
+                <h5 class="card-title">{{ entry.owner }}</h5>
+                <p class="card-text mb-1"><strong>Area:</strong> {{ entry.area }}</p>
+                <p class="card-text"><strong>Location:</strong> {{ entry.location }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Guest View -->
+      <div *ngSwitchCase="'guest'">
+        <h4 class="text-muted">Guest Access</h4>
+        <p class="lead">You have limited access. Please contact the admin to request additional privileges.</p>
+      </div>
+  
+      <!-- Fallback -->
+      <div *ngSwitchDefault>
+        <p class="text-danger">Unknown role.</p>
+      </div>
+  
+    </div>
+  </div>
+  
