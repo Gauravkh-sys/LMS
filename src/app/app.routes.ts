@@ -15,16 +15,16 @@ export const routes: Routes = [
         path:'dashboard',
         component:DashboardComponent
     },
-    // {
-    //     path:'wingmaster',
-    //     component:WingMasterComponent
-    // },
-    // {
-    //     path:'areamaster',
-    //     component:AreaMasterComponent
-    // },
-    // {
-    //     path:'voilations',
-    //     component:VoilationMasterComponent
-    // }
+    {
+        path:'wingmaster',
+        component:WingMasterComponent
+    },
+    {
+        path:'areamaster',
+        component:AreaMasterComponent
+    },
+    {
+        path:'voilations',
+        component:VoilationMasterComponent
+    }
 ];

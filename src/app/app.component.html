@@ -6,36 +6,73 @@
 <!-- Main Layout -->
 <div *ngIf="showLayout" class="d-flex" style="min-height: 100vh;">
   <!-- Sidebar -->
-  <div class="bg-dark text-white p-3" style="width: 250px;">
-    <h4 class="mb-4 text-center">LandSys</h4>
-    <ul class="nav flex-column">
+<div class="bg-dark text-white p-3" style="width: 250px;">
+  <h4 class="mb-4 text-center">LandSys</h4>
+
+  <ul class="nav flex-column">
+    <!-- Dashboard -->
+    <li class="nav-item mb-2">
+      <a routerLink="/dashboard" class="nav-link text-white">
+        <i class="bi bi-speedometer2 me-2"></i> Dashboard
+      </a>
+    </li>
+
+    <!-- Admin Specific Links -->
+    <ng-container *ngIf="role === 'admin'">
       <li class="nav-item mb-2">
-        <a routerLink="/dashboard" class="nav-link text-white">
-          <i class="bi bi-speedometer2 me-2"></i> Dashboard
-        </a>
-      </li>
-      <li class="nav-item mb-2" *ngIf="role === 'admin'">
         <a routerLink="/manage-users" class="nav-link text-white">
           <i class="bi bi-people-fill me-2"></i> Manage Users
         </a>
       </li>
-      <!-- <li class="nav-item mb-2" *ngIf="role === 'user'">
-        <a routerLink="/manage-users" class="nav-link text-white">
-          <i class="bi bi-people-fill me-2"></i> Manage Users
-        </a>
-      </li> -->
-      <li class="nav-item mb-2" *ngIf="role === 'admin'">
-        <a routerLink="/land-entry" class="nav-link text-white">
+
+      <li class="nav-item mb-2">
+        <a routerLink="/areamaster" class="nav-link text-white">
           <i class="bi bi-pencil-square me-2"></i> Land Entry
         </a>
       </li>
-      <li class="nav-item mb-2" *ngIf="role === 'user'">
-        <a routerLink="/my-records" class="nav-link text-white">
+
+      <li class="nav-item mb-2">
+        <a routerLink="/wingmaster" class="nav-link text-white">
+          <i class="bi bi-diagram-3-fill me-2"></i> Wing Master
+        </a>
+      </li>
+
+      <li class="nav-item mb-2">
+        <a routerLink="/master-area" class="nav-link text-white">
+          <i class="bi bi-map-fill me-2"></i> Area Master
+        </a>
+      </li>
+
+      <li class="nav-item mb-2">
+        <a routerLink="/voilations" class="nav-link text-white">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i> Violation Master
+        </a>
+      </li>
+    </ng-container>
+
+    <!-- User Specific Links -->
+    <ng-container *ngIf="role === 'user'">
+      <li class="nav-item mb-2">
+        <a routerLink="/records" class="nav-link text-white">
           <i class="bi bi-folder2-open me-2"></i> My Records
         </a>
       </li>
-    </ul>
-  </div>
+
+      <li class="nav-item mb-2">
+        <a routerLink="/violations" class="nav-link text-white">
+          <i class="bi bi-eye-fill me-2"></i> View Violations
+        </a>
+      </li>
+
+      <li class="nav-item mb-2">
+        <a routerLink="/areas" class="nav-link text-white">
+          <i class="bi bi-geo-fill me-2"></i> View Areas
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+
 
   <!-- Content Area -->
   <div class="flex-grow-1 d-flex flex-column">
