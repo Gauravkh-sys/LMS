@@ -1,0 +1,75 @@
+<div class="container mt-4">
+    <h3 class="mb-3">Violation Master</h3>
+  
+    <!-- Upload & Import Preview -->
+    <div class="mb-4">
+      <label class="form-label">Import from Excel</label>
+      <input type="file" class="form-control mb-2" accept=".xlsx, .xls" (change)="onFileChange($event)" />
+  
+      <div *ngIf="importedViolations.length > 0" class="card p-3 shadow-sm">
+        <h5>Imported Data Preview</h5>
+        <table class="table table-bordered table-sm mt-2">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Violation Head</th>
+              <th>Parent ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let v of importedViolations">
+              <td>{{ v.id }}</td>
+              <td>{{ v.head }}</td>
+              <td>{{ v.parentId || '' }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-success mt-2" (click)="saveAllImported()">Save All Imported</button>
+      </div>
+    </div>
+  
+    <!-- Add/Edit Violation -->
+    <div class="card p-3 mb-4">
+      <h5>{{ isEditing ? 'Edit Violation' : 'Add Violation' }}</h5>
+      <div class="row g-2">
+        <div class="col-md-2">
+          <input class="form-control" type="number" placeholder="ID" [(ngModel)]="currentViolation.id" />
+        </div>
+        <div class="col-md-6">
+          <input class="form-control" type="text" placeholder="Violation Head" [(ngModel)]="currentViolation.head" />
+        </div>
+        <div class="col-md-2">
+          <input class="form-control" type="number" placeholder="Parent ID" [(ngModel)]="currentViolation.parentId" />
+        </div>
+        <div class="col-md-2 d-grid">
+          <button class="btn btn-primary" (click)="saveViolation()">
+            {{ isEditing ? 'Update' : 'Add' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Violation Display -->
+    <h5>Saved Violations</h5>
+    <ul class="list-group">
+      <ng-container *ngFor="let v of structuredViolations">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div><strong>{{ v.id }}.</strong> {{ v.head }}</div>
+          <div>
+            <button class="btn btn-sm btn-outline-primary me-2" (click)="editViolation(v)">Edit</button>
+            <button class="btn btn-sm btn-outline-danger" (click)="deleteViolation(v)">Delete</button>
+          </div>
+        </li>
+        <ul class="list-group ms-4" *ngIf="v.children?.length">
+          <li class="list-group-item" *ngFor="let c of v.children">
+            <strong>{{ c.id }}.</strong> {{ c.head }}
+            <span class="float-end">
+              <button class="btn btn-sm btn-outline-primary me-2" (click)="editViolation(c)">Edit</button>
+              <button class="btn btn-sm btn-outline-danger" (click)="deleteViolation(c)">Delete</button>
+            </span>
+          </li>
+        </ul>
+      </ng-container>
+    </ul>
+  </div>
+  

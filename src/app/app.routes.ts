@@ -4,6 +4,7 @@ import { LandentryComponent } from './components/landentry/landentry.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WingMasterComponent } from './components/masters/wing-master/wing-master.component';
 import { AreaMasterComponent } from './components/masters/area-master/area-master.component';
+import { VoilationMasterComponent } from './components/masters/voilation-master/voilation-master.component';
 
 export const routes: Routes = [
     {
@@ -21,5 +22,9 @@ export const routes: Routes = [
     {
         path:'areamaster',
         component:AreaMasterComponent
+    },
+    {
+        path:'voilations',
+        component:VoilationMasterComponent
     }
 ];
