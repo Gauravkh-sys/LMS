@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WingMasterComponent } from './components/masters/wing-master/wing-master.component';
 import { AreaMasterComponent } from './components/masters/area-master/area-master.component';
 import { VoilationMasterComponent } from './components/masters/voilation-master/voilation-master.component';
+import { UsermanagementComponent } from './components/usermanagement/usermanagement.component';
 
 export const routes: Routes = [
     {
@@ -26,5 +27,9 @@ export const routes: Routes = [
     {
         path:'voilations',
         component:VoilationMasterComponent
+    },
+    {
+        path:'usermanagement',
+        component:UsermanagementComponent
     }
 ];
