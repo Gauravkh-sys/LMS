@@ -45,20 +45,21 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
+                  "maximumWarning": "500kB",
                   "maximumError": "8kB"
                 }
               ],
               "outputHashing": "all"
             },
             "development": {
-              "optimization": false,
+              "optimization": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": false,
+              "namedChunks": false
             }
           },
           "defaultConfiguration": "production"
