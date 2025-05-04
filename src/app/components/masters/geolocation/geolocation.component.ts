@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms';
 export class GeolocationComponent {
   latitude: number | null = null;
   longitude: number | null = null;
+
+  defaultlatitude = 31.41667000;
+  defaultlongitude = 75.575164;
   locationStatus = '';
 
   getCurrentLocation() {
@@ -43,7 +46,7 @@ export class GeolocationComponent {
       .then(response => response.json())
       .then(data => {
         this.latitude = 31.41667000;//data.latitude;
-        this.longitude = 75.61667000;//data.longitude;
+        this.longitude = 75.575164;//data.longitude;
         this.locationStatus = 'Location fetched via IP (approximate)';
         console.log(this.latitude,this.longitude);
       console.log(this.locationStatus);

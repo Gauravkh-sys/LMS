@@ -79,7 +79,7 @@
       <div class="container-fluid justify-content-between align-items-center">
         <!-- Left: Welcome message -->
         <span class="navbar-brand fw-bold mb-0 h1">
-          Welcome, {{ username }}
+          Welcome, {{ username | uppercase }}
           <span class="badge bg-info text-dark ms-2">{{ role | uppercase }}</span>
         </span>
 
