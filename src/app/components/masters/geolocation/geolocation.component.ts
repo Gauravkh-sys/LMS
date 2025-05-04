@@ -36,4 +36,22 @@ export class GeolocationComponent {
     if (!this.latitude || !this.longitude) return '';
     return `https://maps.google.com/maps?q=${this.latitude},${this.longitude}&z=15&output=embed`;
   }
+
+  ngOnInit() {
+    // latitude and longitude 31.41667000, 75.61667000.
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        this.latitude = 31.41667000;//data.latitude;
+        this.longitude = 75.61667000;//data.longitude;
+        this.locationStatus = 'Location fetched via IP (approximate)';
+        console.log(this.latitude,this.longitude);
+      console.log(this.locationStatus);
+      })
+      .catch(() => {
+        this.locationStatus = 'Could not fetch location via IP.';
+      });
+
+      
+  }
 }
