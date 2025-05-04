@@ -7,6 +7,7 @@ import { AreaMasterComponent } from './components/masters/area-master/area-maste
 import { VoilationMasterComponent } from './components/masters/voilation-master/voilation-master.component';
 import { UsermanagementComponent } from './components/usermanagement/usermanagement.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
+import { GeolocationComponent } from './components/masters/geolocation/geolocation.component';
 
 export const routes: Routes = [
     {
@@ -36,6 +37,10 @@ export const routes: Routes = [
     {
         path:'profile',
         component:UserprofileComponent
+    },
+    {
+        path:'geolocation',
+        component:GeolocationComponent
     }
 
 ];

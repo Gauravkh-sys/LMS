@@ -1,0 +1,34 @@
+<p>geolocation works!</p>
+<div class="p-4 space-y-4 bg-white shadow rounded">
+    <h2 class="text-xl font-semibold">Geolocation Input</h2>
+  
+    <div class="space-y-2">
+      <label class="block font-medium">Latitude</label>
+      <input type="number" [(ngModel)]="latitude" class="w-full border p-2 rounded" />
+    </div>
+  
+    <div class="space-y-2">
+      <label class="block font-medium">Longitude</label>
+      <input type="number" [(ngModel)]="longitude" class="w-full border p-2 rounded" />
+    </div>
+  
+    <button (click)="getCurrentLocation()" class="bg-blue-600 text-white px-4 py-2 rounded">
+      Use My Location
+    </button>
+  
+    <div *ngIf="locationStatus" class="text-sm text-gray-500 mt-2">
+      {{ locationStatus }}
+    </div>
+  
+    <div *ngIf="latitude && longitude" class="mt-4">
+      <h3 class="font-medium">Map Preview:</h3>
+      <iframe
+        [src]="mapUrl | safeUrl"
+        width="100%"
+        height="300"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  
