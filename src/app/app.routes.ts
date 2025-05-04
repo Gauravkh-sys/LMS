@@ -8,6 +8,7 @@ import { VoilationMasterComponent } from './components/masters/voilation-master/
 import { UsermanagementComponent } from './components/usermanagement/usermanagement.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { GeolocationComponent } from './components/masters/geolocation/geolocation.component';
+import { PresentationviewerComponent } from './components/masters/presentationviewer/presentationviewer.component';
 
 export const routes: Routes = [
     {
@@ -41,6 +42,10 @@ export const routes: Routes = [
     {
         path:'geolocation',
         component:GeolocationComponent
+    },
+    {
+        path:'presentationView',
+        component:PresentationviewerComponent
     }
 
 ];
